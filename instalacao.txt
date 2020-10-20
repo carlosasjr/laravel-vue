@@ -1,0 +1,18 @@
+https://jwt-auth.readthedocs.io/en/develop/
+https://github.com/tymondesigns/jwt-auth
+
+#INSTALAÇÃO JWT
+composer require tymon/jwt-auth:dev-develop --prefer-source
+
+#config/app.php
+ #providers
+       Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+ #aliases
+      'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+
+#publicação
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+#gerar chave unica
+php artisan jwt:secret
+
