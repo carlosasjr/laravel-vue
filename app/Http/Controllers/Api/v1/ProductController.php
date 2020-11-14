@@ -23,6 +23,8 @@ class ProductController extends Controller
 
         $this->product = $product;
         $this->totalPage = 10;
+
+        $this->middleware('jwt.auth')->except(['index', 'show']);
     }
 
     /**

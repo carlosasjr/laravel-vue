@@ -1,1 +1,15 @@
+@import "~vue-snotify/styles/material.css";
+@import "~vodal/common.css";
+@import "~vodal/rotate.css";
 
+@import '~@fortawesome/fontawesome-free/css/brands.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+
+
+@import '~admin-lte/dist/css/adminlte.css';
+
+
+@import 'custom.css';
+@import 'resets.css';

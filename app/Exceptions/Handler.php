@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
                     'message' => 'Token Expirado',
                     'error' => [
                         'message' => $e->getMessage(),
-                        'code' => $e->getStatusCode()
+                        'code' => $e->getCode()
                     ]
                 ], 404);
             }
@@ -79,7 +79,7 @@ class Handler extends ExceptionHandler
                     'message' => 'Token Inválido',
                     'error' => [
                         'message' => $e->getMessage(),
-                        'code' => $e->getStatusCode()
+                        'code' => $e->getCode()
                     ]
                 ], 404);
             }

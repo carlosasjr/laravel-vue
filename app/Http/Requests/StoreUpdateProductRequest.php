@@ -24,7 +24,7 @@ class StoreUpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => "required|min:3|max:100|unique:products,name,{$this->segment(3)},id",
+            'name'          => "required|min:3|max:100|unique:products,name,{$this->segment(4)},id",
 
             'category_id'   => "required|exists:categories,id",
             'image'         => 'image'

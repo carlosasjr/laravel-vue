@@ -2,26 +2,19 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\Http\Controllers\Api\Auth\Traits\AuthTrait;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
+    use AuthTrait;
+
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    public function login(Request $request)
-    {
-        $credentials = $request->only(['email', 'password']);
-
-        if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        return $this->respondWithToken($token);
-    }
 
     public function logout()
     {
@@ -32,18 +25,19 @@ class AuthController extends Controller
 
     public function refresh()
     {
-        return $this->respondWithToken(auth('api')->refresh());
+        return $this->respondWithToken(auth()->refresh());
     }
 
-
-    private function respondWithToken($token)
+    public function me()
     {
-        $user = auth('api')->user();
+        $response = $this->getUser();
 
-        return response()->json([
-            'token' => $token,
-            'user' => $user,
-            'token_type' => 'bearer',
-        ]);
+        if (!$this->isAuthenticated($response))
+             return response()->json([$response['response'], $response['status']]);
+
+        $user = $response['response'];
+
+        return response()->json(compact('user'));
     }
+
 }

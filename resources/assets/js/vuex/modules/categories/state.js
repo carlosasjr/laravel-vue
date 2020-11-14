@@ -1,5 +1,7 @@
 let states = {
-     items: []
+    items: {
+        data : []
+    }
 }
 
 export default states

@@ -12,11 +12,13 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .postCss('resources/assets/css/app.css', 'public/css', [
+
+.postCss('resources/assets/css/app.css', 'public/css', [
         //
     ]);
 
-mix.browserSync('http://dev.laravel.api/')
+mix.browserSync('http://dev.laravel.api/');
+
 
 
 
